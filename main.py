@@ -59,6 +59,10 @@ finally:
         print('database connection closed')
 
 ##### STAGE 2 AND 4
+
+# Finding activation_date with maximum profit
 max_diff_value = df['diff_btw_amount_and_paid'].max()
 df_profit = df[df['diff_btw_amount_and_paid']==max_diff_value][['activation_date','diff_btw_amount_and_paid']]
+
+# Load results to json file
 df_profit.to_json('max_profit.json', orient = 'split', index = False)
